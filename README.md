@@ -1,5 +1,6 @@
 # python-challenge
-#PyBank 
+
+# PyBank 
 import os
 import csv
 
@@ -14,15 +15,15 @@ max_profit_increase_date = ""
 min_profit_decrease = float('inf')
 min_profit_decrease_date = ""
 
-# Open and read csv
+#Open and read csv
 with open(budget_data_csv) as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=",")
 
-    # Read the header row first
+    #Read the header row first
     csv_header = next(csv_file)
     print(f"Header: {csv_header}")
 
-    # Count the total number of months included in the dataset
+    #Count the total number of months included in the dataset
 
     for row in csv_reader:
         total_months += 1
@@ -31,17 +32,17 @@ with open(budget_data_csv) as csv_file:
         profit_losses = int(row[1])
         total_profit_loss += profit_losses
             
-    # The changes in "Profit/Losses" over the entire period, and then the average of those changes
+    #The changes in "Profit/Losses" over the entire period, and then the average of those changes
         if previous_profit_losses is not None:
             profit_losses_change = profit_losses - previous_profit_losses
             total_profit_losses_change += profit_losses_change
             
-    # The greatest increase in profits (date and amount) over the entire period
+    #The greatest increase in profits (date and amount) over the entire period
             if profit_losses_change > max_profit_increase:
                 max_profit_increase = profit_losses_change
                 max_profit_increase_date = row[0]
 
-    # The greatest decrease in profits (date and amount) over the entire period
+    #The greatest decrease in profits (date and amount) over the entire period
                 if profit_losses_change < min_profit_decrease:
                     min_profit_decrease = profit_losses_change
                     min_profit_decrease_date = row[0]
@@ -58,7 +59,7 @@ print("Greatest Increase in Profits:", max_profit_increase_date,"($",max_profit_
 print("Greatest Decrease in Profits:", min_profit_decrease_date,"($",min_profit_decrease,")") 
 
 
-#Pypoll code
+# Pypoll code
 import os
 import csv
 
@@ -72,7 +73,7 @@ results = []
 with open(budget_data_csv) as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=",")
 
-    # Read the header row first
+    #Read the header row first
     csv_header = next(csv_file)
     print(f"Header: {csv_header}")
     next(csv_reader)  
